@@ -1,3 +1,4 @@
+from vispy.io import write_png
 from vispy.scene import Node, SceneCanvas
 from vispy.scene.cameras import TurntableCamera
 
@@ -7,13 +8,9 @@ CANVAS_SIZE = (800, 600)  # (width, height)
 NUM_LINE_POINTS = 500
 
 
-class Shape:
+class Shape(SceneCanvas):
     def __init__(self, plot: type[Node]) -> None:
-        self.canvas = SceneCanvas(
-            size=CANVAS_SIZE,
-            vsync=True,
-        )
-
+        super().__init__(size=CANVAS_SIZE, vsync=True)
         self.view = self.canvas.central_widget.add_view()
         camera = TurntableCamera(
             fov=60, elevation=30, azimuth=50, parent=self.view.scene
@@ -23,3 +20,7 @@ class Shape:
         self.view.camera = camera
         # self.view.add(XYZAxis())
         self.view.add(plot)
+
+    def on_close(self, event):
+        img = self.canvas.render()
+        write_png(f"./out/{__module__}.png", img)
