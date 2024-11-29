@@ -307,8 +307,7 @@ dependencies = [
     { name = "numpy" },
     { name = "pillow" },
     { name = "pyopengl" },
-    { name = "pyside6" },
-    { name = "vispy" },
+    { name = "vispy", extra = ["pyside6"] },
 ]
 
 [package.metadata]
@@ -316,8 +315,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.1.3" },
     { name = "pillow", specifier = ">=11.0.0" },
     { name = "pyopengl", specifier = ">=3.1.7" },
-    { name = "pyside6", specifier = ">=6.8.0.2" },
-    { name = "vispy", specifier = ">=0.14.3" },
+    { name = "vispy", extras = ["pyside6"], specifier = ">=0.14.3" },
 ]
 
 [[package]]
@@ -359,4 +357,9 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/2c/ff/1cca6b74ec64789bd2b696cabd00276d1e82529d47a4e7db69147208abba/vispy-0.14.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ca7aebb4280e3754ae60c673dafb2f5acc26d6182761215281b07e696962e013", size = 1859501 },
     { url = "https://files.pythonhosted.org/packages/5e/08/87a7e2640e5dd444804c69505eef8ae14d50d782c2b2d3b21679cf6a70be/vispy-0.14.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a90896898b10b31760634a955031dc048fda41fd6e21ee4ff3e12ebf16970b09", size = 1866372 },
     { url = "https://files.pythonhosted.org/packages/75/72/e02fb3b3e3ad4458bdc9830e97a980919921752bca1f40d816c1e25d566f/vispy-0.14.3-cp312-cp312-win_amd64.whl", hash = "sha256:2b39304dae410fde21723cdcf50cae71ba611479f01cb8e30116493ce318fcab", size = 1469553 },
+]
+
+[package.optional-dependencies]
+pyside6 = [
+    { name = "pyside6" },
 ]
