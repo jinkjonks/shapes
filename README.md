@@ -11,3 +11,11 @@ It took me 10 hours.
 1. run `uv sync`
 1. run `uv run pringle.py`
 1. pringle
+
+## Roadmap
+
+- add better texture and flavouring on pringle
+- more shapes
+- public API
+- IaC
+- add chat bot
