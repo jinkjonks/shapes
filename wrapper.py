@@ -11,15 +11,13 @@ NUM_LINE_POINTS = 500
 class Shape(SceneCanvas):
     def __init__(self, plot: type[Node]) -> None:
         super().__init__(size=CANVAS_SIZE, vsync=True)
-        self.view = self.canvas.central_widget.add_view()
-        camera = TurntableCamera(
-            fov=60, elevation=30, azimuth=50, parent=self.view.scene
-        )
+        view = self.central_widget.add_view()
+        camera = TurntableCamera(fov=60, elevation=30, azimuth=50, parent=view.scene)
         camera.set_range((-4, 4), (-4, 4), (-4, 4))
 
-        self.view.camera = camera
+        view.camera = camera
         # self.view.add(XYZAxis())
-        self.view.add(plot)
+        view.add(plot)
 
     def on_close(self, event):
         img = self.canvas.render()
